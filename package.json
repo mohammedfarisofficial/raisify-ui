@@ -1,17 +1,31 @@
 {
   "name": "raisify-ui",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/raisify-ui.umd.cjs",
+  "module": "./dist/raisify-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/raisify-ui.js",
+      "require": "./dist/raisify-ui.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -r dist",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.77.5",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
